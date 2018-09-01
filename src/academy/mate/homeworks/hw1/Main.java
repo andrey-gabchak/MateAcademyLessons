@@ -5,29 +5,40 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Choose task");
+        System.out.println("Enter 1 to Array Rotation");
+        System.out.println("Enter 2 to Restore Array");
+        System.out.println("Enter 3 to Ranges");
+
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter array length: ");
+
+        int variant = scanner.nextInt();
+
+        System.out.print("Enter array length: ");
         int arrayLength = scanner.nextInt();
-        System.out.println("Enter 'k' step: ");
-        int k = scanner.nextInt();
+        System.out.print("Enter arrays value: ");
+        int[] inputArray = new int[arrayLength];
+        for (int i = 0; i < inputArray.length; i++) {
+            inputArray[i] = scanner.nextInt();
+        }
+//        int[] inputArray = createRandomArray(arrayLength);
 
-        //TODO:choosing task
-
-        int[] array = createRandomArray(arrayLength);
-
-        System.out.println(Arrays.toString(array));
-        System.out.println(Arrays.toString(arrayRotation(array, k)));
-
-        int[] arrayMono = {1, 2, -1, 4, 7, 6, -2, 4}; //TODO: delete the shitcode
-        System.out.println(Arrays.toString(restoreArray(arrayMono)));
-
-        int[] arrayRange = {1, 2, 3, 5, 8, 9, 10, 13, 14, 15, 16};
-        ArrayList<int[]> range = ranges(arrayRange);
-        for (int[] ints : range) {
-            System.out.print(Arrays.toString(ints));
+        if (variant == 1) {
+            System.out.println("Enter 'k' step: ");
+            int k = scanner.nextInt();
+            System.out.println("Input array is " + Arrays.toString(inputArray));
+            System.out.println("Result array is " + Arrays.toString(arrayRotation(inputArray, k)));
+        }
+        if (variant == 2) {
+            System.out.println(Arrays.toString(restoreArray(inputArray)));
+        }
+        if (variant == 3) {
+//            int[] arrayRange = {1, 2, 3, 5, 8, 9, 10, 13, 14, 15, 16};
+            ArrayList<int[]> range = ranges(inputArray);
+            for (int[] ints : range) {
+                System.out.print(Arrays.toString(ints));
+            }
         }
     }
-
 
     private static int[] arrayRotation(int[] array, int k) {
         int[] result = new int[array.length];
@@ -36,20 +47,11 @@ public class Main {
         return result;
     }
 
-    private static int[] createRandomArray(int arrayLength) {
-        int[] array = new int[arrayLength];
-        for (int i = 0; i < arrayLength; i++) {
-            Random random = new Random();
-            array[i] = random.nextInt(100);
-        }
-        return array;
-    }
-
     private static int[] restoreArray(int[] inputArray) {
         int[] result = inputArray;
         for (int i = 1; i < result.length - 1; i++) { //Negative elements (NE) can be ONLY INSIDE monotone part. So NE can't be first and last position.
             if (result[i] < 0) {
-                result[i] = result[i - 1] / 2 + result[i + 1] / 2;
+                result[i] = (result[i - 1] + result[i + 1]) / 2;
             }
         }
         return result;
@@ -75,5 +77,14 @@ public class Main {
             }
         }
         return result;
+    }
+
+    private static int[] createRandomArray(int arrayLength) {
+        int[] array = new int[arrayLength];
+        for (int i = 0; i < arrayLength; i++) {
+            Random random = new Random();
+            array[i] = random.nextInt(100);
+        }
+        return array;
     }
 }
