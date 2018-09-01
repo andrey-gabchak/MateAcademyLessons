@@ -20,7 +20,6 @@ public class Main {
         for (int i = 0; i < inputArray.length; i++) {
             inputArray[i] = scanner.nextInt();
         }
-//        int[] inputArray = createRandomArray(arrayLength);
 
         if (variant == 1) {
             System.out.println("Enter 'k' step: ");
@@ -32,7 +31,6 @@ public class Main {
             System.out.println(Arrays.toString(restoreArray(inputArray)));
         }
         if (variant == 3) {
-//            int[] arrayRange = {1, 2, 3, 5, 8, 9, 10, 13, 14, 15, 16};
             ArrayList<int[]> range = ranges(inputArray);
             for (int[] ints : range) {
                 System.out.print(Arrays.toString(ints));
@@ -79,7 +77,7 @@ public class Main {
         return result;
     }
 
-    private static int[] createRandomArray(int arrayLength) {
+    private static int[] createRandomArray(int arrayLength) { //For lazy dudes
         int[] array = new int[arrayLength];
         for (int i = 0; i < arrayLength; i++) {
             Random random = new Random();
