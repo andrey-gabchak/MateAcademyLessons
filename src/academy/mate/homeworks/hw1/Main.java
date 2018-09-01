@@ -17,6 +17,9 @@ public class Main {
         System.out.println(Arrays.toString(array));
         System.out.println(Arrays.toString(arrayRotation(array, k)));
 
+        int [] arrayMono = {1, 2, -1, 4, 7, 6, -2, 4}; //TODO: delete the shitcode
+        System.out.println(Arrays.toString(restoreArray(arrayMono)));
+
     }
 
     private static int[] arrayRotation(int[] array, int k) {
@@ -33,5 +36,15 @@ public class Main {
             array[i] = random.nextInt(100);
         }
         return array;
+    }
+
+    private static int[] restoreArray(int[] inputArray) {
+        int[] result = inputArray;
+        for (int i = 1; i < result.length - 1; i++) { //Negative elements (NE) can be ONLY INSIDE monotone part. So NE can't be first and last position.
+            if (result[i] < 0) {
+                result[i] = result[i - 1] / 2 + result[i + 1] / 2;
+            }
+        }
+        return result;
     }
 }
