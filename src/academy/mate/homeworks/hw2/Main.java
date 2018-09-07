@@ -6,17 +6,20 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        char inputChar = scanner.next().charAt(0);
         String inputString = scanner.next();
-        System.out.println(isPalindrome(inputString) ? "Is Main" : "Isn't palindrome");
-        System.out.println(stringPartReverse(inputString, 2, 4));
+        Main main = new Main();
+//        System.out.println(main.isPalindrome(inputString) ? "Is Main" : "Isn't palindrome");
+//        System.out.println(main.stringPartReverse(inputString, 2, 4));
+        System.out.println(main.frequencyOfChar(inputChar, inputString));
     }
 
-    private static boolean isPalindrome(String inputString) {
+    private boolean isPalindrome(String inputString) {
         String reverse = stringPartReverse(inputString, 0, inputString.length() - 1);
         return reverse.equalsIgnoreCase(inputString);
     }
 
-    private static String stringPartReverse(String inputString, int indexFrom, int indexTo) {
+    private String stringPartReverse(String inputString, int indexFrom, int indexTo) {
         char[] charArray = inputString.toCharArray();
         for (int i = indexFrom; i < indexTo; i++) {
             char temp = charArray[i];
@@ -26,6 +29,15 @@ public class Main {
         return String.copyValueOf(charArray);
     }
 
-
+    private int frequencyOfChar( char ch, String str) {
+        char[] inputChars = str.toCharArray();
+        int count = 0;
+        for (int i = 0; i < inputChars.length; i++) {
+            if (inputChars[i] == ch) {
+                count++;
+            }
+        }
+        return count;
+    }
 
 }
