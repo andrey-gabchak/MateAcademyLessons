@@ -2,12 +2,12 @@ package academy.mate.homeworks.hw2;
 
 import java.util.Scanner;
 
-public class Palindrome {
+public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String inputString = scanner.next();
-        System.out.println(isPalindrome(inputString) ? "Is Palindrome" : "Isn't palindrome");
+        System.out.println(isPalindrome(inputString) ? "Is Main" : "Isn't palindrome");
         System.out.println(stringPartReverse(inputString, 2, 4));
     }
 
@@ -25,5 +25,7 @@ public class Palindrome {
         }
         return String.copyValueOf(charArray);
     }
+
+
 
 }
