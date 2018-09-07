@@ -9,9 +9,10 @@ public class Main {
         char inputChar = scanner.next().charAt(0);
         String inputString = scanner.next();
         Main main = new Main();
-//        System.out.println(main.isPalindrome(inputString) ? "Is Main" : "Isn't palindrome");
-//        System.out.println(main.stringPartReverse(inputString, 2, 4));
+        System.out.println(main.isPalindrome(inputString) ? "Is Main" : "Isn't palindrome");
+        System.out.println(main.stringPartReverse(inputString, 2, 4));
         System.out.println(main.frequencyOfChar(inputChar, inputString));
+        //Do I need write input part 'Choose the task' like hw1?
     }
 
     private boolean isPalindrome(String inputString) {
@@ -32,8 +33,8 @@ public class Main {
     private int frequencyOfChar( char ch, String str) {
         char[] inputChars = str.toCharArray();
         int count = 0;
-        for (int i = 0; i < inputChars.length; i++) {
-            if (inputChars[i] == ch) {
+        for (char inputChar : inputChars) {
+            if (inputChar == ch) {
                 count++;
             }
         }
