@@ -52,6 +52,14 @@ public class ArrayListTest {
     }
 
     @Test
+    public void testSet() {
+        int indexForSet = 3;
+        Integer valueForSet = 10;
+        arrayList.set(indexForSet, valueForSet);
+        Assert.assertEquals(valueForSet, arrayList.get(indexForSet));
+    }
+
+    @Test
     public void testRemove() {
         int expectedSize = 4;
         int indexForRemove = 0;
