@@ -31,11 +31,9 @@ public class ArrayListTest {
 
     @Test
     public void get() {
-        Assert.assertEquals(Integer.valueOf(1), arrayList.get(0));
-        Assert.assertEquals(Integer.valueOf(2), arrayList.get(1));
-        Assert.assertEquals(Integer.valueOf(3), arrayList.get(2));
-        Assert.assertEquals(Integer.valueOf(4), arrayList.get(3));
-        Assert.assertEquals(Integer.valueOf(5), arrayList.get(4));
+        for (int i = 0; i < arrayList.size(); i++) {
+            Assert.assertEquals(Integer.valueOf(i + 1), arrayList.get(i));
+        }
     }
 
     @Test
