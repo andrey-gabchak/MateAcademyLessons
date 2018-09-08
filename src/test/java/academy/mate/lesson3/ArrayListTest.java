@@ -21,7 +21,7 @@ public class ArrayListTest {
     }
 
     @Test
-    public void add() {
+    public void testAdd() {
         arrayList.add(6);
         int expectedSize = 6;
         Integer expectedResult = 6;
@@ -30,13 +30,19 @@ public class ArrayListTest {
     }
 
     @Test
-    public void get() {
+    public void testGet() {
         for (int i = 0; i < arrayList.size(); i++) {
             Assert.assertEquals(Integer.valueOf(i + 1), arrayList.get(i));
         }
     }
 
     @Test
-    public void remove() {
+    public void testRemove() {
+        int expectedSize = 4;
+        int indexForRemove = 0;
+        arrayList.remove(indexForRemove);
+        Integer expectedResult = 2;
+        Assert.assertEquals(expectedResult, arrayList.get(indexForRemove));
+        Assert.assertEquals(expectedSize, arrayList.size());
     }
 }
