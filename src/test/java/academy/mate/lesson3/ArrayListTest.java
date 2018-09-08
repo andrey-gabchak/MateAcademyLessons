@@ -36,7 +36,7 @@ public class ArrayListTest {
     }
 
     @Test
-    public void testAdd() {
+    public void testAddToTheEndOfArrayList() {
         arrayList.add(6);
         int expectedSize = 6;
         Integer expectedResult = 6;
