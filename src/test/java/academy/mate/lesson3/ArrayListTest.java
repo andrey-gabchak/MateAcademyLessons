@@ -45,6 +45,14 @@ public class ArrayListTest {
     }
 
     @Test
+    public void testAddByIndex() {
+        int index = 1;
+        Integer value = 10;
+        arrayList.add(index, value);
+        Assert.assertEquals(value, arrayList.get(index));
+    }
+
+    @Test
     public void testGet() {
         for (int i = 0; i < arrayList.size(); i++) {
             Assert.assertEquals(Integer.valueOf(i + 1), arrayList.get(i));
