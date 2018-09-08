@@ -15,7 +15,7 @@ public class LinkedList<T> {
         numbers.add(5);
         numbers.add(6);
 
-        System.out.println(numbers.get(5));
+        System.out.println(numbers.getNode(5));
     }
 
     public LinkedList() {
@@ -33,32 +33,36 @@ public class LinkedList<T> {
     }
 
     public T get(int index) {
+        return getNode(index).value;
+    }
+
+    private Node<T> getNode(int index) {
         if (index > size - 1 || index < 0) {
             throw new IndexOutOfBoundsException();
         }
-        T t;
+        Node<T> node;
         if (index > size / 2) {
-            t = getFromTail(size - (index + 1));
+            node = getFromTail(size - (index + 1));
         } else {
-            t = getFromHead(index);
+            node = getFromHead(index);
         }
-        return t;
+        return node;
     }
 
-    private T getFromTail(int index) {
+    private Node<T> getFromTail(int index) {
         Node<T> node = tail;
         for (int i = 0; i < index; i++) {
             node = node.prev;
         }
-        return node.value;
+        return node;
     }
 
-    private T getFromHead(int index) {
+    private Node<T> getFromHead(int index) {
         Node<T> node = head;
         for (int i = 0; i < index; i++) {
             node = node.next;
         }
-        return node.value;
+        return node;
     }
 
     private void addNode(Node<T> node) {
@@ -73,11 +77,33 @@ public class LinkedList<T> {
     }
 
     public void remove(int index) {
+        Node<T> node = getNode(index);
+        removeNode(node);
         size--;
     }
 
+    private void removeNode(Node<T> node) {
+        node.prev.next = node.next; //Node prevNode = node.prev.next;
+        node.next.prev = node.prev;
+    }
+
     public void remove(T t) {
+        Node<T> node = getNodeByValue(t);
+        removeNode(node);
         size--;
+    }
+
+    private Node<T> getNodeByValue(T value) {
+        Node<T> node = head;
+        Node<T> result = null;
+        for (int i = 0; i < size; i++) {
+            if (node.value == value) {
+                result = node;
+                break;
+            }
+            node = node.next;
+        }
+        return result;
     }
 
     class Node<T> {
