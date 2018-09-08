@@ -1,6 +1,9 @@
 package academy.mate.homeworks.hw1;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -55,11 +58,11 @@ public class Main {
         return result;
     }
 
-    private static ArrayList<int []> ranges(int [] inputArray) {
+    private static ArrayList<int[]> ranges(int[] inputArray) {
         ArrayList<int[]> result = new ArrayList<>();
 
         for (int i = 0; i < inputArray.length - 1; i++) {
-            int [] tempArray = new int[2];
+            int[] tempArray = new int[2];
             if (inputArray[i + 1] - inputArray[i] != 1) {
                 result.add(new int[]{inputArray[i]});
             } else {
