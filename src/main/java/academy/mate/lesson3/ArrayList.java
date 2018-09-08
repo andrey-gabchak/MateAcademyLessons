@@ -15,9 +15,7 @@ public class ArrayList<T> {
     }
 
     public void add(T t) {
-        if (size * LOAD_FACTOR >= currentLength) {
-            increaseLengthArray();
-        }
+        isCurrentLengthTooSmall();
         array[size] = t;
         size += 1;
     }
@@ -38,6 +36,12 @@ public class ArrayList<T> {
         return size;
     }
 
+    private void isCurrentLengthTooSmall() {
+        if (size * LOAD_FACTOR >= currentLength) {
+            increaseLengthArray();
+        }
+    }
+
     private void increaseLengthArray() {
         currentLength *= LOAD_FACTOR;
         Object[] result = new Object[currentLength];
@@ -53,7 +57,7 @@ public class ArrayList<T> {
     }
 
 
-    /*TODO: method: size()
+    /*
     TODO method: add(int index, Object o)
     TODO method: clone()
     TODO method: contains(Object o)
