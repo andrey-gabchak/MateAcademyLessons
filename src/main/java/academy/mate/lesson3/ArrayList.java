@@ -26,9 +26,7 @@ public class ArrayList<T> {
 
     public void add(int index, T t) {
         isCurrentLengthTooSmall();
-        if (index != currentLength - 1) {
-            System.arraycopy(array, index, array, index + 1, currentLength - index);
-        }
+        System.arraycopy(array, index, array, index + 1, size - index);
         array[index] = t;
         size++;
     }
