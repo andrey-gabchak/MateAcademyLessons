@@ -117,8 +117,6 @@ public class LinkedList<T> {
 
         public Node(T value) {
             this.value = value;
-//            this.prev = prev;
-//            this.next = next;
         }
     }
 }
