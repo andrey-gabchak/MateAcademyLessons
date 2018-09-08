@@ -17,11 +17,20 @@ public class ArrayList<T> {
     public void add(T t) {
         isCurrentLengthTooSmall();
         array[size] = t;
-        size += 1;
+        size++;
     }
 
     public void set(int index, T t) {
         array[index] = t;
+    }
+
+    public void add(int index, T t) {
+        isCurrentLengthTooSmall();
+        if (index != currentLength - 1) {
+            System.arraycopy(array, index, array, index + 1, currentLength - index);
+        }
+        array[index] = t;
+        size++;
     }
 
     public T get(int index) {
