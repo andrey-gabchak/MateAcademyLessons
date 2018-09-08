@@ -20,6 +20,10 @@ public class ArrayList<T> {
         size += 1;
     }
 
+    public void set(int index, T t) {
+        array[index] = t;
+    }
+
     public T get(int index) {
         return (T) array[index];
     }
