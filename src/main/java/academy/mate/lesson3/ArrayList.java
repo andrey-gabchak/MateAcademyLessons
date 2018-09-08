@@ -9,6 +9,11 @@ public class ArrayList<T> {
 
     private Object[] array;
 
+    public ArrayList() {
+        this.array = new Object[INITIAL_LENGTH];
+        currentLength = INITIAL_LENGTH;
+    }
+
     public void add(T t) {
         if (size * LOAD_FACTOR >= currentLength) {
             increaseLengthArray();
@@ -29,6 +34,10 @@ public class ArrayList<T> {
         }
     }
 
+    public int size() {
+        return size;
+    }
+
     private void increaseLengthArray() {
         currentLength *= LOAD_FACTOR;
         Object[] result = new Object[currentLength];
@@ -44,8 +53,12 @@ public class ArrayList<T> {
     }
 
 
-    public ArrayList() {
-        this.array = new Object[INITIAL_LENGTH];
-        currentLength = INITIAL_LENGTH;
-    }
+    /*TODO: method: size()
+    TODO method: add(int index, Object o)
+    TODO method: clone()
+    TODO method: contains(Object o)
+    TODO method: indexOf(Object o)
+    TODO method: isEmpty()
+    TODO method: set(int index
+    */
 }
