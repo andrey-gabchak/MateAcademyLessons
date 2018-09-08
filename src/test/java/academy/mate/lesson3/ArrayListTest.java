@@ -21,6 +21,21 @@ public class ArrayListTest {
     }
 
     @Test
+    public void testSizeIncrease() {
+        arrayList.add(7);
+        int expectedResult = 6;
+        Assert.assertEquals(expectedResult, arrayList.size());
+    }
+
+    @Test
+    public void testSizeDecrease() {
+        int indexForRemove = 4;
+        arrayList.remove(indexForRemove);
+        int expectedResult = 4;
+        Assert.assertEquals(expectedResult, arrayList.size());
+    }
+
+    @Test
     public void testAdd() {
         arrayList.add(6);
         int expectedSize = 6;
