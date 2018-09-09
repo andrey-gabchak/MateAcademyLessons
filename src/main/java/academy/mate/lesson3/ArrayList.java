@@ -47,6 +47,10 @@ public class ArrayList<T> {
         return size;
     }
 
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     private void isCurrentLengthTooSmall() {
         if (size * LOAD_FACTOR >= currentLength) {
             increaseLengthArray();
@@ -69,11 +73,8 @@ public class ArrayList<T> {
 
 
     /*
-    TODO method: add(int index, Object o)
     TODO method: clone()
     TODO method: contains(Object o)
     TODO method: indexOf(Object o)
-    TODO method: isEmpty()
-    TODO method: set(int index
     */
 }
