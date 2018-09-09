@@ -1,6 +1,5 @@
 package academy.mate.homeworks.hw1;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -34,10 +33,7 @@ public class Main {
             System.out.println(Arrays.toString(restoreArray(inputArray)));
         }
         if (variant == 3) {
-            ArrayList<int[]> range = ranges(inputArray);
-            for (int[] ints : range) {
-                System.out.print(Arrays.toString(ints));
-            }
+            System.out.println(ranges(inputArray));
         }
     }
 
@@ -62,28 +58,39 @@ public class Main {
         return result;
     }
 
-    //TODO: without ArrayList
-    //TODO: without second for
-    private static ArrayList<int[]> ranges(int[] inputArray) {
-        ArrayList<int[]> result = new ArrayList<>();
-
-        for (int i = 0; i < inputArray.length - 1; i++) {
-            int[] tempArray = new int[2];
-            if (inputArray[i + 1] - inputArray[i] != 1) {
-                result.add(new int[]{inputArray[i]});
-            } else {
-                tempArray[0] = inputArray[i];
-                for (int j = i; j < inputArray.length - 1; j++) {
-                    if (inputArray[i + 1] - inputArray[i] != 1) {
-                        break;
-                    }
-                    tempArray[1] = inputArray[j];
-                    i = j;
+    private static String ranges(int[] inputArray) {
+        StringBuilder result = new StringBuilder();
+        int lastIterationStep = 0;
+        for (int i = lastIterationStep; i < inputArray.length - 1; i++) {
+            if (i == lastIterationStep) {
+                if (inputArray[i] == inputArray[i + 1] - 1) {
+                    result.append('[');
+                    result.append(inputArray[i]);
+                    result.append(' ');
+                } else {
+                    result.append('[');
+                    result.append(inputArray[lastIterationStep]);
+                    result.append(']');
+                    lastIterationStep++;
                 }
-                result.add(tempArray);
+            } else if (i + 1 == inputArray.length - 1) {
+                if (inputArray[i] + 1 == inputArray[i + 1]) {
+                    result.append(inputArray[i + 1]);
+                    result.append(']');
+                } else {
+                    result.append('[');
+                    result.append(inputArray[i + 1]);
+                    result.append(']');
+                }
+            } else {
+                if (inputArray[i] + 1 != inputArray[i + 1]) {
+                    result.append(inputArray[i]);
+                    result.append(']');
+                    lastIterationStep = i + 1;
+                }
             }
         }
-        return result;
+        return result.toString();
     }
 
     private static int[] createRandomArray(int arrayLength) { //For lazy dudes
