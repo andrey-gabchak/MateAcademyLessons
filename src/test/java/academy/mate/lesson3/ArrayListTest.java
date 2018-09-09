@@ -76,4 +76,20 @@ public class ArrayListTest {
         Assert.assertEquals(expectedResult, arrayList.get(indexForRemove));
         Assert.assertEquals(expectedSize, arrayList.size());
     }
+
+    @Test
+    public void testIsNotEmpty() {
+        boolean expectedResult = false;
+        Assert.assertEquals(expectedResult, arrayList.isEmpty());
+    }
+
+    @Test
+    public void testIsEmpty() {
+        int sizeOfArrayListBeforeClinning = arrayList.size();
+        for (int i = 0; i < sizeOfArrayListBeforeClinning; i++) {
+            arrayList.remove(0);
+        }
+        boolean expectedResult = true;
+        Assert.assertEquals(expectedResult, arrayList.isEmpty());
+    }
 }
