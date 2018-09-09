@@ -93,7 +93,7 @@ public class Main {
         return result.toString();
     }
 
-    private static int[] createRandomArray(int arrayLength) { //For lazy dudes
+    private static int[] createRandomArray(int arrayLength) {
         int[] array = new int[arrayLength];
         for (int i = 0; i < arrayLength; i++) {
             Random random = new Random();
