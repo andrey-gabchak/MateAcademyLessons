@@ -1,5 +1,7 @@
 package academy.mate.lesson6Mockito;
 
+import java.util.Objects;
+
 public class Main {
     private UserDao userDao = new UserDao();
     private EmailService emailService = new EmailService();
@@ -9,7 +11,16 @@ public class Main {
     }
 
     public User findByEmail(String email) {
-        return userDao.findByEmail(email);
+        User user = userDao.findByEmail(email);
+        user = modifyUser(user);
+        return user;
+    }
+
+    User modifyUser(User user) {
+        user.setAge(11);
+        user.setEmail("newEmail");
+        user.setUserName("newUserName");
+        return user;
     }
 
     public void sendEmail(User user) {
@@ -49,6 +60,21 @@ public class Main {
 
         public void setAge(Integer age) {
             this.age = age;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            User user = (User) o;
+            return Objects.equals(userName, user.userName) &&
+                    Objects.equals(email, user.email) &&
+                    Objects.equals(age, user.age);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(userName, email, age);
         }
     }
 

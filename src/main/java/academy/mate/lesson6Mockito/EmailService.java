@@ -2,6 +2,6 @@ package academy.mate.lesson6Mockito;
 
 public class EmailService {
     public void send(String email) {
-        System.out.println();
+        System.out.println("Do Something " + email);
     }
 }
