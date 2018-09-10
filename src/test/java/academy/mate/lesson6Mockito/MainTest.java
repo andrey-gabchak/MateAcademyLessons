@@ -1,10 +1,12 @@
 package academy.mate.lesson6Mockito;
 
+import academy.mate.lesson3.ArrayList;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.mockito.Matchers.anyString;
@@ -35,8 +37,15 @@ public class MainTest {
     public void testSendEmail_OK () {
         Main.User user = new Main.User("lucy", "lucy@test.com", 20);
         doNothing().when(emailService).send(anyString()); //Если вызов void метода влияет на состояние, то doNothing() игнорирует изменения в тесте
+    }
 
-
+    @Test
+    public void testSpy() {
+        ArrayList<Object> users = Mockito.spy(new ArrayList<>());
+//        users.add(new Main.User(null, null, null));
+        users.add(new Main.User(null, null, null));
+        Mockito.verify(users).add(new Main.User(null, null, null));
+        Assert.assertEquals(1, users.size());
     }
 
     class MainWrapper extends Main {
