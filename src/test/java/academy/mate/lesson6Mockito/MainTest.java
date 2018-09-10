@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.mockito.Matchers.anyString;
@@ -16,7 +17,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class MainTest {
 
-    @Mock
+    @Spy
     private UserDao userDao;
     @Mock
     private EmailService emailService;
@@ -30,6 +31,8 @@ public class MainTest {
         Main.User expected = new Main.User("lucy", "lucy@test.com", 20);
 
         Main.User result = main.findByEmail("lucy@test.com");
+
+        Mockito.verify(userDao).addUser(new Main.User("lucy", "lucy@test.com", 20)); //SPY нужно, чтобы быть уверенным, что вызывался именно заданный метод
         Assert.assertEquals(expected, result);
     }
 
