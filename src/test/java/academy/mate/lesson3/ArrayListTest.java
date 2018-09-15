@@ -52,6 +52,13 @@ public class ArrayListTest {
         Assert.assertEquals(value, arrayList.get(index));
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testAddByIndexNegativeScenario() {
+        int indexDoesntExist = 20;
+        Integer value = 14;
+        arrayList.add(indexDoesntExist, value);
+    }
+
     @Test
     public void testGet() {
         for (int i = 0; i < arrayList.size(); i++) {
