@@ -119,8 +119,7 @@ public class ArrayListTest {
 
     @Test
     public void testIsNotEmpty() {
-        boolean expectedResult = false;
-        Assert.assertEquals(expectedResult, arrayList.isEmpty());
+        Assert.assertFalse(arrayList.isEmpty());
     }
 
     @Test
