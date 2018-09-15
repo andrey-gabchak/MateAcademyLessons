@@ -76,6 +76,12 @@ public class LinkedListTest {
         Assert.assertEquals(expectedResult, linkedList.get(linkedList.size() - 1));
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testRemoveNegativeScenario() {
+        int indexDoesntExist = 10;
+        linkedList.remove(indexDoesntExist);
+    }
+
     @Test
     public void testRemoveByValue() {
         Integer expectedResult = 3;
