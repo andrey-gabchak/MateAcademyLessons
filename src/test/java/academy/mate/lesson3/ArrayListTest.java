@@ -80,6 +80,13 @@ public class ArrayListTest {
         Assert.assertEquals(valueForSet, arrayList.get(indexForSet));
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testSetNegativeScenario() {
+        int indexDoesntExist = 20;
+        Integer value = 15;
+        arrayList.set(indexDoesntExist, value);
+    }
+
     @Test
     public void testRemove() {
         int expectedSize = 4;
