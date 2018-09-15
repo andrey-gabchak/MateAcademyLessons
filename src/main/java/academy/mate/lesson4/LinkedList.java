@@ -83,8 +83,14 @@ public class LinkedList<T> {
     }
 
     private void removeNode(Node<T> node) {
-        node.prev.next = node.next; //Node prevNode = node.prev.next;
-        node.next.prev = node.prev;
+        if (node == head) {
+            head = node.next;
+        } else if (node == tail) {
+            tail = node.prev;
+        } else {
+            node.prev.next = node.next; //Node prevNode = node.prev.next;
+            node.next.prev = node.prev;
+        }
     }
 
     public void remove(T t) {
