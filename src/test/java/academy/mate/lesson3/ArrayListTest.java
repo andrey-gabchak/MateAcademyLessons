@@ -98,6 +98,13 @@ public class ArrayListTest {
     }
 
     @Test
+    public void testRemoveFirstElem() {
+        Integer expectedResult = 2;
+        arrayList.remove(0);
+        Assert.assertEquals(expectedResult, arrayList.get(0));
+    }
+
+    @Test
     public void testIsNotEmpty() {
         boolean expectedResult = false;
         Assert.assertEquals(expectedResult, arrayList.isEmpty());
