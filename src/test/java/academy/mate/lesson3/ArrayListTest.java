@@ -125,11 +125,10 @@ public class ArrayListTest {
 
     @Test
     public void testIsEmpty() {
-        int sizeOfArrayListBeforeClinning = arrayList.size();
-        for (int i = 0; i < sizeOfArrayListBeforeClinning; i++) {
+        int sizeOfArrayListBeforePurge = arrayList.size();
+        for (int i = 0; i < sizeOfArrayListBeforePurge; i++) {
             arrayList.remove(0);
         }
-        boolean expectedResult = true;
-        Assert.assertEquals(expectedResult, arrayList.isEmpty());
+        Assert.assertTrue(arrayList.isEmpty());
     }
 }
