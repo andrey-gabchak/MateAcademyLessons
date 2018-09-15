@@ -111,6 +111,12 @@ public class ArrayListTest {
         Assert.assertEquals(expectedResult, arrayList.get(arrayList.size() - 1));
     }
 
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void testRemoveNegativeScenario() {
+        int indexDoesntExist = 20;
+        arrayList.remove(indexDoesntExist);
+    }
+
     @Test
     public void testIsNotEmpty() {
         boolean expectedResult = false;
