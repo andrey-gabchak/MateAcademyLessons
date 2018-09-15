@@ -1,4 +1,4 @@
-package academy.mate.homeworks.hw2;
+package academy.mate.dataStructure.String;
 
 import java.util.Scanner;
 
