@@ -105,6 +105,13 @@ public class ArrayListTest {
     }
 
     @Test
+    public void testRemoveLastElem() {
+        Integer expectedResult = 4;
+        arrayList.remove(arrayList.size() - 1);
+        Assert.assertEquals(expectedResult, arrayList.get(arrayList.size() - 1));
+    }
+
+    @Test
     public void testIsNotEmpty() {
         boolean expectedResult = false;
         Assert.assertEquals(expectedResult, arrayList.isEmpty());
