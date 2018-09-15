@@ -66,6 +66,12 @@ public class ArrayListTest {
         }
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetNegativeScenario() {
+        int indexDoesntExist = 20;
+        arrayList.get(indexDoesntExist);
+    }
+
     @Test
     public void testSet() {
         int indexForSet = 3;
