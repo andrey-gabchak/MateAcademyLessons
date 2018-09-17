@@ -50,8 +50,8 @@ public class LinkedListTest {
 
     @Test
     public void testRemoveByIndexThatLastElemShifted() {
-        Integer expectedResult = 3;
-        linkedList.remove(1);
+        Integer expectedResult = 2;
+        linkedList.remove(0);
         Assert.assertEquals(expectedResult, linkedList.get(1));
     }
 

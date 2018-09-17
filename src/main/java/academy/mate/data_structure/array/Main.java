@@ -1,4 +1,4 @@
-package academy.mate.dataStructure.array;
+package academy.mate.data_structure.array;
 
 import java.util.Arrays;
 import java.util.Random;

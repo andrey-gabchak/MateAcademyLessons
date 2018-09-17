@@ -1,4 +1,4 @@
-package academy.mate.dataStructure.String;
+package academy.mate.data_structure.string;
 
 import java.util.Scanner;
 

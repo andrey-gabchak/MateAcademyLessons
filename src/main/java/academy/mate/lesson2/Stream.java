@@ -70,7 +70,7 @@ public class Stream<T> {
 
         /*List<Integer> result = Stream.of(names)
                 .filter(n -> n.length() > 4)
-                .map(String::length) //String to Integer. map(String::length) - обращение к методу String.length();
+                .map(string::length) //string to Integer. map(string::length) - обращение к методу string.length();
                 .toList();*/
 
         String result = Stream.of(names)
@@ -79,25 +79,25 @@ public class Stream<T> {
 //                .orElse(getAlternativeString()); //-будет вызываться sout "TROLOLOLO", но не будет "alternative string"
                 .orElseGet(() -> getAlternativeString()); //будет работать корректно. -> отложенное действие
         /**Если используется исполняемый метод, то лучше использовать .orElseGet().
-         *  Для примитивов и String можно использовать .orElse().*/
+         *  Для примитивов и string можно использовать .orElse().*/
 
         Stream.of(names)
                 .filter(n -> n.length() > 4)
                 .forEach(n -> System.out.println(n));
 
 
-        /*List<String> list = new ArrayList<>();
+        /*List<string> list = new ArrayList<>();
         list.add("Alex");
         list.add("Dmitry");
         list.add("Vadim");
         List<Integer> result = list.stream()
                 .filter(n -> n.length() > 4)
-                .map(String::length)
+                .map(string::length)
                 .collect(toList());
 
         Integer result2 = list.stream()
                 .filter(n -> n.length() > 4)
-                .map(String::length)
+                .map(string::length)
                 .reduce(0, (l1, l2) -> l1 + l2);*/
 
 
