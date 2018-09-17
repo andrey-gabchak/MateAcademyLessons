@@ -1,10 +1,8 @@
 package academy.mate.lesson7Templates;
 
-public class AddUserHandler extends BaseHandler {
+public class PageNotFoundHandler extends BaseHandler {
     @Override
     protected void doSomething(Request request) {
-        System.out.println("From AddUserHandler!");
+        //404
     }
-
-
 }

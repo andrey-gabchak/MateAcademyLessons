@@ -37,6 +37,10 @@ class Request {
         this.uri = uri;
     }
 
+    public static Request of(String method, String uri) {
+        return new Request(method, uri);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
