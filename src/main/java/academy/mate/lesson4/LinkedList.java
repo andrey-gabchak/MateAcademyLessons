@@ -82,16 +82,15 @@ public class LinkedList<T> {
         size--;
     }
 
-    //TODO: NullPointerException when remove first and last elem
     private void removeNode(Node<T> node) {
-        if (node.equals(head)) {
+        if (node == head) {
             head = node.next;
-        }
-        if (node.equals(tail)) {
+        } else if (node == tail) {
             tail = node.prev;
+        } else {
+            node.prev.next = node.next; //Node prevNode = node.prev.next;
+            node.next.prev = node.prev;
         }
-        node.prev.next = node.next; //Node prevNode = node.prev.next;
-        node.next.prev = node.prev;
     }
 
     public void remove(T t) {

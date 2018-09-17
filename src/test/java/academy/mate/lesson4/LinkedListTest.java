@@ -32,20 +32,27 @@ public class LinkedListTest {
     }
 
     @Test
-    public void add() {
-        linkedList.add(6);
-        int expectedResult = 6;
+    public void testAdd() {
+        linkedList.add(15);
+        int expectedResult = 15;
+        int expectedSize = 5;
         int size = linkedList.size();
-        Assert.assertEquals(expectedResult, size);
-        Assert.assertEquals(expectedResult, linkedList.get(size).intValue());
+        Assert.assertEquals(expectedSize, size);
+        Assert.assertEquals(expectedResult, linkedList.get(size - 1).intValue());
     }
 
     @Test
-    public void get() {
+    public void testGetPositiveScenario() {
         Assert.assertEquals(Integer.valueOf(1), linkedList.get(0));
         Assert.assertEquals(Integer.valueOf(2), linkedList.get(1));
         Assert.assertEquals(Integer.valueOf(3), linkedList.get(2));
         Assert.assertEquals(Integer.valueOf(4), linkedList.get(3));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetNegativeScenario() {
+        int indexDoesntExist = 10;
+        linkedList.get(indexDoesntExist);
     }
 
     @Test
@@ -53,6 +60,26 @@ public class LinkedListTest {
         Integer expectedResult = 2;
         linkedList.remove(0);
         Assert.assertEquals(expectedResult, linkedList.get(1));
+    }
+
+    @Test
+    public void testRemoveHead() {
+        Integer expectedResult = 2;
+        linkedList.remove(0);
+        Assert.assertEquals(expectedResult, linkedList.get(0));
+    }
+
+    @Test
+    public void testRemoveTail() {
+        Integer expectedResult = 3;
+        linkedList.remove(linkedList.size() - 1);
+        Assert.assertEquals(expectedResult, linkedList.get(linkedList.size() - 1));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testRemoveNegativeScenario() {
+        int indexDoesntExist = 10;
+        linkedList.remove(indexDoesntExist);
     }
 
     @Test
