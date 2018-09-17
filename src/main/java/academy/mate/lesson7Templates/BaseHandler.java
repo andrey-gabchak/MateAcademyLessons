@@ -8,10 +8,16 @@ public abstract class BaseHandler {
         doSomething(method, uri, request);
     }
 
-    protected abstract void doSomething(String method, String uri, Request request);
+    protected void doSomething(String method, String uri, Request request) {
+        if (method.equals("POST") && uri.equals("/users")) { //процедурный стиль когда несколько if
+
+        } else if (!request.smth) {
+        }
+    }
 
     class Request {
         List<Object> params;
+        private boolean smth;
     }
 
 }
