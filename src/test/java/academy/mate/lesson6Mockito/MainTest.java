@@ -45,7 +45,7 @@ public class MainTest {
     @Test
     public void testSpy() {
         ArrayList<Object> users = Mockito.spy(new ArrayList<>());
-//        users.add(new Main.User(null, null, null));
+//        users.add(new BaseHandler.User(null, null, null));
         users.add(new Main.User(null, null, null));
         Mockito.verify(users).add(new Main.User(null, null, null));
         Assert.assertEquals(1, users.size());
